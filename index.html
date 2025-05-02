@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Selamat Ulang Tahun</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;600&display=swap');
+
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #ffe6e6, #ffccd5);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 15px 40px rgba(255, 99, 132, 0.4);
+            width: 350px;
+            padding: 30px 40px 40px;
+            position: relative;
+            text-align: center;
+        }
+
+        .container::before {
+            content: "🎉";
+            font-family: 'Pacifico', cursive;
+            font-size: 90px;
+            color: #ff4d6d;
+            opacity: 0.15;
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            pointer-events: none;
+            user-select: none;
+        }
+
+        h2 {
+            font-family: 'Pacifico', cursive;
+            font-size: 2.5em;
+            color: #ff4d6d;
+            margin-bottom: 5px;
+        }
+
+        p.subtitle {
+            font-weight: 300;
+            font-size: 1em;
+            color: #ff6f81;
+            margin-bottom: 30px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            font-size: 1em;
+            padding: 12px 15px;
+            border-radius: 50px;
+            border: 1.5px solid #ff8299;
+            outline: none;
+            transition: 0.3s;
+        }
+
+        input[type="text"]:focus,
+        input[type="password"]:focus {
+            border-color: #ff4d6d;
+            box-shadow: 0 0 8px 0 #ff4d6d88;
+        }
+
+        button {
+            background-color: #ff4d6d;
+            color: white;
+            font-size: 1.1em;
+            font-weight: 600;
+            padding: 12px 0;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #ff6f81;
+        }
+
+        .error-message {
+            color: red;
+            font-size: 0.9em;
+            margin-top: -10px;
+            margin-bottom: 10px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" role="main" aria-label="Form login bertema ulang tahun">
+        <h2>Selamat Ulang Tahun</h2>
+        <p class="subtitle">Selamat datang! Silakan masuk untuk melanjutkan.</p>
+        <form id="loginForm" onsubmit="return handleLogin(event)">
+            <input type="text" name="username" id="username" placeholder="Nama Pengguna" aria-label="Nama Pengguna" required />
+            <input type="password" name="password" id="password" placeholder="Kata Sandi" aria-label="Kata Sandi" required />
+            <div class="error-message" id="errorMessage">Nama pengguna atau kata sandi salah.</div>
+            <button type="submit" aria-label="Tombol masuk">Masuk</button>
+        </form>
+    </div>
+
+<script>
+    function handleLogin(event) {
+        event.preventDefault();
+        const username = document.getElementById('username').value.trim().toLowerCase();
+        const password = document.getElementById('password').value.trim();
+
+        // Set credentials here
+        const validUsername = 'sifa melani safitri';
+        const validPassword = 'ulangtahunke20';
+
+        const errorMessage = document.getElementById('errorMessage');
+        if (username === validUsername && password === validPassword) {
+            errorMessage.style.display = 'none';
+            window.location.href = 'birthday_welcome.html';
+        } else {
+            errorMessage.style.display = 'block';
+        }
+        return false;
+    }
+</script>
+</body>
+</html>
